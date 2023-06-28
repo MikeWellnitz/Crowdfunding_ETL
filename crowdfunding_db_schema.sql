@@ -1,3 +1,5 @@
+create database crowdfunding_db;
+
 DROP TABLE category;
 DROP TABLE subcategory;
 DROP TABLE contacts;
@@ -26,12 +28,12 @@ create table contacts (
 
 create table campaign (
 	cf_id INT NOT NULL,
-	contact_id INT NOT NULL,
+	contact_id INT NOT NULL PRIMARY KEY,
 	FOREIGN KEY (contact_id) REFERENCES contacts("Contact ID"),
 	company_name VARCHAR(50) NOT NULL,
 	description VARCHAR(120) NOT NULL,
-	goal INT NOT NULL,
-	pledged INT NOT NULL,
+	goal NUMERIC NOT NULL,
+	pledged NUMERIC NOT NULL,
 	outcome VARCHAR(30) NOT NULL,
 	backers_count INT NOT NULL,
 	country VARCHAR(5) NOT NULL,
